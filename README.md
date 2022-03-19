@@ -1,0 +1,144 @@
+<h1 align="center">Progresses</h1>
+<!-- <p align="center">
+  <a href="https://www.npmjs.com/package/progresses">
+    <img alt="npm" src="https://img.shields.io/npm/v/progresses?style=flat" />
+  </a>
+  <a href="https://www.npmjs.com/package/progresses">
+    <img alt="npm" src="https://img.shields.io/npm/dw/progresses?style=flat?&color=blue" />
+  </a>
+  <a href="https://www.npmjs.com/package/progresses">
+    <img alt="npm" src="https://img.shields.io/github/package-json/dependency-version/capriok/progresses/dev/@types/react" />
+  </a>
+</p> -->
+
+<!-- <p align="center">
+  <img alt="screenshot" src="https://i.gyazo.com/feff88e421e29781edc414c4e041e5ec.png" >
+</p> -->
+
+A modern approach to an progress components for React
+
+```jsx
+import React from 'react'
+
+function App () {
+
+  let options = { 
+    width: 150,
+    height: 100,
+    orientation: 'vertical',
+    animationColor: 'crimson'
+   }
+
+  return (
+    <ProgreessBlock
+      percent={75}
+      options={options}
+    />
+  )
+}
+```
+
+## Install
+
+### npm
+
+```bash
+npm install --save progresses
+```
+
+## Contribution
+
+Do you like what we made? Support it by donating, creating an issue or pull request.
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/capriok7)
+
+<!-- ## Try it out on CodeSandbox
+[![Edit Button](https://svgshare.com/i/KAx.svg)](https://codesandbox.io/s/autosearch-08wvi) -->
+
+<!-- ## API
+
+## Props
+
+#### `list: Array`
+Value: `Array<{ [prop: string]: string } | string>`
+
+Type: `Array<String>`: no action required in AutoSearchOptions
+
+Type: `Array<Object>`: specify propKey value in AutoSearchOptions
+
+- The list used for the AutoSearch algorithms
+
+#### `onChange: Function` (optional)
+Default: `() => {}`
+
+Arguments: `value: String`
+
+- Invoked when the user changes the input value.
+
+#### `onNavigate: Function` (optional)
+Default: `() => {}`
+
+Arguments: `results: Array<T>, active: Number`
+
+- Invoked when keyboard listeners react to user navigation of results list.
+
+#### `onSelect: Function` (optional)
+Default: `() => {}`
+
+Arguments: `value: String, results: Array<T>`
+
+- Invoked when the user selects an item from the results list.
+
+#### `options: AutoSearchOptions` (optional)
+Default: `Object<AutoSeachOptions>`
+
+Value: `Object`
+
+- Used throughout AutoSearch as conditional options and values
+
+## Options (optional)
+
+#### `propKey: String`  (optional)
+Default: 'item'
+
+- Used to find the iteration value by the AutoSearch algorithms
+
+#### `primaryColor: String`  (optional)
+Default:  'steelblue'
+
+- Used as the primary color for active result indication
+
+#### `placeholder: String` (optional)
+Default: 'AutoSearch'
+
+- Attribute applied to the root input placeholder value
+
+#### `autoFocus: Boolean` (optional)
+Default:  false
+
+- Attribute applied to the root input autoFocus value
+
+#### `caseSensitive: Boolean` (optional)
+Default: false
+
+- Used in the AutoSearch algorithms to match search value
+
+#### `maxResults: Number` (optional)
+Default: 10
+
+- Max number of results to render in the results list
+
+#### `showIcon: Boolean` (optional)
+Default: true
+
+- Used to determine if the search icon is rendered in the input -->
+
+## Patch notes
+A log of recent updates and notes can be found [here](https://kylecaprio.dev/progresses)
+
+## Roadmap
+The future plans are under deliberation within the core team.
+
+## License
+This project is licensed under the terms of the [MIT license](/LICENSE)
+
