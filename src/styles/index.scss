@@ -1,0 +1,34 @@
+$fillcolor: var(--fill-color);
+$animationcolor: var(--animation-color);
+$greylight: #adadad;
+$greydark: #3a3a3a;
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes slow {
+  10% {
+    fill: $fillcolor;
+  }
+  50% {
+    fill: $animationcolor;
+  }
+  100% {
+    fill: $fillcolor;
+  }
+}
+
+@keyframes fast {
+  35% {
+    fill: $fillcolor;
+  }
+  50% {
+    fill: $animationcolor;
+  }
+  65% {
+    fill: $fillcolor;
+  }
+}

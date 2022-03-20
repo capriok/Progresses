@@ -1,0 +1,15 @@
+@import './index.scss';
+
+._ProgressBar {
+  @include flex;
+  width: 100%;
+
+  svg {
+    border: $greylight 2px solid;
+    border-radius: 20px;
+  }
+
+  svg rect {
+    transition: height 1s linear;
+  }
+}
