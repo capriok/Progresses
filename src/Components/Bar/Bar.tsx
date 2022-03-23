@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef } from 'react'
-import { ProgressBarOptions, ProgressBarProps } from './index'
-import './styles/progressBar.scss'
+import { BarOptions, BarProps } from './Bar.types'
+import '../../styles/bar.scss'
 
-const defaultOptions: ProgressBarOptions = {
+const defaultOptions: BarOptions = {
   width: 150,
   height: 100,
   orientation: 'horizontal',
@@ -16,7 +16,7 @@ const defaultOptions: ProgressBarOptions = {
   },
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = (props) => {
+const Bar: React.FC<BarProps> = (props) => {
   const { percent } = props
 
   const options = useMemo(() => {
@@ -97,4 +97,4 @@ const ProgressBar: React.FC<ProgressBarProps> = (props) => {
   )
 }
 
-export default ProgressBar
+export default Bar
