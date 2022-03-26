@@ -5,9 +5,12 @@ export interface CircleProps {
 
 export type CircleOptions = {
   size: number
+  stroke?: {
+    color?: string
+    width?: number
+  }
   fill?: {
     color?: string
-    stroke?: string
     opacity?: number
   }
   animation?: {

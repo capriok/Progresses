@@ -4,9 +4,12 @@ import '../../styles/circle.scss'
 
 const defaultOptions: CircleOptions = {
   size: 150,
+  stroke: {
+    color: '#7f7f7f',
+    width: 5,
+  },
   fill: {
     color: '#202020',
-    stroke: '#7f7f7f',
     opacity: 1,
   },
   animation: {
@@ -24,6 +27,10 @@ const Circle: React.FC<CircleProps> = (props) => {
     const options = {
       ...defaultOptions,
       ...props.options,
+      stroke: {
+        ...defaultOptions.stroke,
+        ...props.options?.stroke,
+      },
       fill: {
         ...defaultOptions.fill,
         ...props.options?.fill,
@@ -44,15 +51,14 @@ const Circle: React.FC<CircleProps> = (props) => {
         width: options.size,
       },
       circle: {
-        height: options.size,
-        width: options.size,
-        r: 60,
+        r: options.size / 2 - 5,
         cx: options.size / 2,
         cy: options.size / 2,
-        strokeDasharray: '189',
-        strokeDashoffset: pct,
+        strokeDasharray: options.size * 2.83,
+        strokeDashoffset: '0',
         fill: options.fill.color,
-        stroke: options.fill.stroke,
+        stroke: options.stroke?.color,
+        strokeWidth: options.stroke?.width,
         animation: renderAnimation(percent),
       },
     }
@@ -86,7 +92,10 @@ const Circle: React.FC<CircleProps> = (props) => {
   return (
     <div className="_ProgressCircle">
       <svg style={styles.svg}>
-        <circle {...styles} style={styles.circle} />
+        <circle
+          {...styles}
+          style={{ ...styles.circle, strokeDashoffset: pct }}
+        />
       </svg>
     </div>
   )
