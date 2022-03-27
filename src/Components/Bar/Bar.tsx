@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef } from 'react'
-import { BarOptions, BarProps } from './Bar.types'
+import { BarProps } from './Bar.types'
 import '../../styles/bar.scss'
 
-const defaultOptions: BarOptions = {
+const defaultOptions = {
   width: 150,
   height: 100,
   orientation: 'horizontal',
@@ -49,8 +49,8 @@ const Bar: React.FC<BarProps> = (props) => {
         width: percent + '%',
         height: '100%',
         animation: renderAnimation(percent),
-        fill: options.fill!.color,
-        opacity: options.fill!.opacity,
+        fill: options.fill.color,
+        opacity: options.fill.opacity,
       },
     }
 
@@ -65,23 +65,23 @@ const Bar: React.FC<BarProps> = (props) => {
     return styles
   }, [options])
 
-  const pRef: any = useRef()
+  const ref: any = useRef()
 
   useEffect(() => {
-    pRef.current.style.setProperty('--fill-color', options.fill!.color)
-    pRef.current.style.setProperty(
-      '--animation-color',
-      options.animation!.color,
+    ref.current.style.setProperty('--bar-fill-color', options.fill.color)
+    ref.current.style.setProperty(
+      '--bar-animation-color',
+      options.animation.color,
     )
   }, [])
 
   function renderAnimation(percent: number) {
     if (percent !== 100) return 'unset'
 
-    if (options.animation!.type === 'slow') {
+    if (options.animation.type === 'slow') {
       return `ease-in-out 3s infinite alternate slow`
     }
-    if (options.animation!.type === 'fast') {
+    if (options.animation.type === 'fast') {
       return `ease-in-out 1.5s infinite alternate fast`
     }
 
@@ -89,7 +89,7 @@ const Bar: React.FC<BarProps> = (props) => {
   }
 
   return (
-    <div ref={pRef} className="_ProgressBar" style={styles.progress}>
+    <div ref={ref} className="_ProgressBar" style={styles.progress}>
       <svg style={styles.svg}>
         <rect style={styles.rect} />
       </svg>

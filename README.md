@@ -20,17 +20,16 @@ A modern approach to an progress components for React
 ```jsx
 import React from 'react'
 
-function App () {
+function App() {
 
   let options = { 
     width: 150,
-    height: 100,
-    orientation: 'vertical',
+    height: 10,
     animationColor: 'crimson'
    }
 
   return (
-    <ProgreessBlock
+    <ProgreessBar
       percent={75}
       options={options}
     />

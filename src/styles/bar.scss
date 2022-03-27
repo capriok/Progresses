@@ -1,5 +1,8 @@
 @import './index.scss';
 
+$barfillcolor: var(--bar-fill-color);
+$baranimationcolor: var(--bar-animation-color);
+
 ._ProgressBar {
   @include flex;
   width: 100%;
@@ -11,5 +14,29 @@
 
   svg rect {
     transition: height 1s linear;
+  }
+}
+
+@keyframes slow {
+  10% {
+    fill: $barfillcolor;
+  }
+  50% {
+    fill: $baranimationcolor;
+  }
+  100% {
+    fill: $barfillcolor;
+  }
+}
+
+@keyframes fast {
+  35% {
+    fill: $barfillcolor;
+  }
+  50% {
+    fill: $baranimationcolor;
+  }
+  65% {
+    fill: $barfillcolor;
   }
 }

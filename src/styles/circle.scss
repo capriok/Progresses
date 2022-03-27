@@ -1,5 +1,9 @@
 @import './index.scss';
 
+$circlestrokecolor: var(--circle-stroke-color);
+$circlefillcolor: var(--circle-fill-color);
+$circleanimationcolor: var(--circle-animation-color);
+
 ._ProgressCircle {
   @include flex;
   width: 100%;
@@ -17,7 +21,31 @@
     top: 50%;
     left: 50%;
     border-radius: 100%;
-    box-shadow: inset 0 0 15px -10px rgb(60, 60, 60);
+    box-shadow: inset 0 0 15px -10px red;
     transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes slow {
+  10% {
+    stroke: $circlestrokecolor;
+  }
+  50% {
+    stroke: $circleanimationcolor;
+  }
+  100% {
+    stroke: $circlestrokecolor;
+  }
+}
+
+@keyframes fast {
+  30% {
+    stroke: $circlestrokecolor;
+  }
+  50% {
+    stroke: $circleanimationcolor;
+  }
+  60% {
+    stroke: $circlestrokecolor;
   }
 }

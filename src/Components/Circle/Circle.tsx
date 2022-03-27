@@ -1,15 +1,15 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import { CircleOptions, CircleProps } from './Circle.types'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { CircleProps } from './Circle.types'
 import '../../styles/circle.scss'
 
-const defaultOptions: CircleOptions = {
-  size: 150,
+const defaultOptions = {
+  size: 100,
   stroke: {
-    color: '#7f7f7f',
-    width: 5,
+    color: '#202020',
+    width: 7,
   },
   fill: {
-    color: '#202020',
+    color: 'transparent',
     opacity: 1,
   },
   animation: {
@@ -51,14 +51,14 @@ const Circle: React.FC<CircleProps> = (props) => {
         width: options.size,
       },
       circle: {
-        r: options.size / 2 - 5,
+        r: options.size / 2 - options.stroke.width,
         cx: options.size / 2,
         cy: options.size / 2,
-        strokeDasharray: options.size * 2.83,
+        strokeDasharray: options.size * 2.7,
         strokeDashoffset: '0',
         fill: options.fill.color,
-        stroke: options.stroke?.color,
-        strokeWidth: options.stroke?.width,
+        stroke: options.stroke.color,
+        strokeWidth: options.stroke.width,
         animation: renderAnimation(percent),
       },
     }
@@ -79,18 +79,29 @@ const Circle: React.FC<CircleProps> = (props) => {
   function renderAnimation(percent: number) {
     if (percent !== 100) return 'unset'
 
-    if (options.animation!.type === 'slow') {
+    if (options.animation.type === 'slow') {
       return `ease-in-out 3s infinite alternate slow`
     }
-    if (options.animation!.type === 'fast') {
+    if (options.animation.type === 'fast') {
       return `ease-in-out 1.5s infinite alternate fast`
     }
 
     return 'unset'
   }
 
+  const ref: any = useRef()
+
+  useEffect(() => {
+    ref.current.style.setProperty('--circle-stroke-color', options.stroke.color)
+    ref.current.style.setProperty('--circle-fill-color', options.fill.color)
+    ref.current.style.setProperty(
+      '--circle-animation-color',
+      options.animation.color,
+    )
+  }, [])
+
   return (
-    <div className="_ProgressCircle">
+    <div ref={ref} className="_ProgressCircle">
       <svg style={styles.svg}>
         <circle
           {...styles}

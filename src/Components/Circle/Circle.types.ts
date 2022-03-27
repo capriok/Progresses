@@ -7,7 +7,6 @@ export type CircleOptions = {
   size: number
   stroke?: {
     color?: string
-    width?: number
   }
   fill?: {
     color?: string
