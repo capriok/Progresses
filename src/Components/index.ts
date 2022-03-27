@@ -1,3 +1,3 @@
-export { default as Bar } from './Bar'
+export { default as ProgressBar } from './Bar'
 
-export { default as Circle } from './Circle'
+export { default as ProgressCircle } from './Circle'

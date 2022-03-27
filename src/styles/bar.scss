@@ -1,14 +1,13 @@
-@import './index.scss';
-
-$barfillcolor: var(--bar-fill-color);
-$baranimationcolor: var(--bar-animation-color);
+$FillColor: var(--bar-fill-color);
+$AnimColor: var(--bar-anim-color);
 
 ._ProgressBar {
-  @include flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 
   svg {
-    border: $greylight 2px solid;
     border-radius: 20px;
   }
 
@@ -19,24 +18,24 @@ $baranimationcolor: var(--bar-animation-color);
 
 @keyframes barslow {
   10% {
-    fill: $barfillcolor;
+    fill: $FillColor;
   }
   50% {
-    fill: $baranimationcolor;
+    fill: $AnimColor;
   }
   100% {
-    fill: $barfillcolor;
+    fill: $FillColor;
   }
 }
 
 @keyframes barfast {
   35% {
-    fill: $barfillcolor;
+    fill: $FillColor;
   }
   50% {
-    fill: $baranimationcolor;
+    fill: $AnimColor;
   }
   65% {
-    fill: $barfillcolor;
+    fill: $FillColor;
   }
 }

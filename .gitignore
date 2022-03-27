@@ -27,7 +27,6 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-
 # Dependencies
 /node_modules
 

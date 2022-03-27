@@ -6,6 +6,10 @@ const defaultOptions = {
   width: 150,
   height: 100,
   orientation: 'horizontal',
+  background: {
+    color: '#e0e0e0',
+    opacity: 1,
+  },
   fill: {
     color: '#202020',
     opacity: 1,
@@ -23,6 +27,10 @@ const Bar: React.FC<BarProps> = (props) => {
     const options = {
       ...defaultOptions,
       ...props.options,
+      background: {
+        ...defaultOptions.background,
+        ...props.options?.background,
+      },
       fill: {
         ...defaultOptions.fill,
         ...props.options?.fill,
@@ -44,6 +52,7 @@ const Bar: React.FC<BarProps> = (props) => {
       svg: {
         width: options.width,
         height: options.height,
+        backgroundColor: options.background.color,
       },
       rect: {
         width: percent + '%',
@@ -69,10 +78,7 @@ const Bar: React.FC<BarProps> = (props) => {
 
   useEffect(() => {
     ref.current.style.setProperty('--bar-fill-color', options.fill.color)
-    ref.current.style.setProperty(
-      '--bar-animation-color',
-      options.animation.color,
-    )
+    ref.current.style.setProperty('--bar-anim-color', options.animation.color)
   }, [])
 
   function renderAnimation(percent: number) {
