@@ -26,7 +26,7 @@ $circleanimationcolor: var(--circle-animation-color);
   }
 }
 
-@keyframes slow {
+@keyframes circleslow {
   10% {
     stroke: $circlestrokecolor;
   }
@@ -38,7 +38,7 @@ $circleanimationcolor: var(--circle-animation-color);
   }
 }
 
-@keyframes fast {
+@keyframes circlefast {
   30% {
     stroke: $circlestrokecolor;
   }

@@ -80,10 +80,10 @@ const Circle: React.FC<CircleProps> = (props) => {
     if (percent !== 100) return 'unset'
 
     if (options.animation.type === 'slow') {
-      return `ease-in-out 3s infinite alternate slow`
+      return `ease-in-out 3s infinite alternate circleslow`
     }
     if (options.animation.type === 'fast') {
-      return `ease-in-out 1.5s infinite alternate fast`
+      return `ease-in-out 1.5s infinite alternate circlefast`
     }
 
     return 'unset'

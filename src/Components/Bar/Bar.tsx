@@ -48,9 +48,9 @@ const Bar: React.FC<BarProps> = (props) => {
       rect: {
         width: percent + '%',
         height: '100%',
-        animation: renderAnimation(percent),
         fill: options.fill.color,
         opacity: options.fill.opacity,
+        animation: renderAnimation(percent),
       },
     }
 
@@ -79,10 +79,10 @@ const Bar: React.FC<BarProps> = (props) => {
     if (percent !== 100) return 'unset'
 
     if (options.animation.type === 'slow') {
-      return `ease-in-out 3s infinite alternate slow`
+      return `ease-in-out 3s infinite alternate barslow`
     }
     if (options.animation.type === 'fast') {
-      return `ease-in-out 1.5s infinite alternate fast`
+      return `ease-in-out 1.5s infinite alternate barfast`
     }
 
     return 'unset'

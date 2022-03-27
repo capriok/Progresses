@@ -17,7 +17,7 @@ $baranimationcolor: var(--bar-animation-color);
   }
 }
 
-@keyframes slow {
+@keyframes barslow {
   10% {
     fill: $barfillcolor;
   }
@@ -29,7 +29,7 @@ $baranimationcolor: var(--bar-animation-color);
   }
 }
 
-@keyframes fast {
+@keyframes barfast {
   35% {
     fill: $barfillcolor;
   }
