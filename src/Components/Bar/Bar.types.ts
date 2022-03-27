@@ -1,5 +1,6 @@
 export interface BarProps {
   percent: number
+  className?: string
   options?: BarOptions
 }
 

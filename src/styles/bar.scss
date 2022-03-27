@@ -16,6 +16,13 @@ $AnimColor: var(--bar-anim-color);
   }
 }
 
+@keyframes baridle {
+  from {
+  }
+  to {
+  }
+}
+
 @keyframes barslow {
   10% {
     fill: $FillColor;

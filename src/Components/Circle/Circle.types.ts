@@ -1,5 +1,6 @@
 export interface CircleProps {
   percent: number
+  className?: string
   options?: CircleOptions
 }
 

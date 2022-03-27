@@ -3,8 +3,8 @@ import { BarProps } from './Bar.types'
 import '../../styles/bar.scss'
 
 const defaultOptions = {
-  width: 150,
-  height: 100,
+  width: 100,
+  height: 10,
   orientation: 'horizontal',
   background: {
     color: '#e0e0e0',
@@ -21,7 +21,7 @@ const defaultOptions = {
 }
 
 const Bar: React.FC<BarProps> = (props) => {
-  const { percent } = props
+  const { percent, className } = props
 
   const options = useMemo(() => {
     const options = {
@@ -65,24 +65,18 @@ const Bar: React.FC<BarProps> = (props) => {
 
     if (options.orientation === 'vertical') {
       styles.progress.transform = 'rotate(180deg)'
-      styles.svg.width = options.height
-      styles.svg.height = options.width
       styles.rect.width = '100%'
       styles.rect.height = percent + '%'
     }
+    console.log(styles)
 
     return styles
   }, [options])
 
   const ref: any = useRef()
 
-  useEffect(() => {
-    ref.current.style.setProperty('--bar-fill-color', options.fill.color)
-    ref.current.style.setProperty('--bar-anim-color', options.animation.color)
-  }, [])
-
   function renderAnimation(percent: number) {
-    if (percent !== 100) return 'unset'
+    if (percent !== 100) return `ease-in-out 3s infinite alternate baridle`
 
     if (options.animation.type === 'slow') {
       return `ease-in-out 3s infinite alternate barslow`
@@ -94,8 +88,13 @@ const Bar: React.FC<BarProps> = (props) => {
     return 'unset'
   }
 
+  useEffect(() => {
+    ref.current.style.setProperty('--bar-fill-color', options.fill.color)
+    ref.current.style.setProperty('--bar-anim-color', options.animation.color)
+  }, [])
+
   return (
-    <div ref={ref} className="_ProgressBar" style={styles.progress}>
+    <div ref={ref} className={'_ProgressBar' + `${' ' + className}`} style={styles.progress}>
       <svg style={styles.svg}>
         <rect style={styles.rect} />
       </svg>

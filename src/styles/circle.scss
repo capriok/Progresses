@@ -1,4 +1,3 @@
-$FillColor: var(--circle-fill-color);
 $StrokeColor: var(--circle-stroke-color);
 $AnimColor: var(--circle-anim-color);
 
@@ -19,6 +18,13 @@ $AnimColor: var(--circle-anim-color);
   }
   ._CircleFill {
     z-index: 1;
+  }
+}
+
+@keyframes baridle {
+  from {
+  }
+  to {
   }
 }
 

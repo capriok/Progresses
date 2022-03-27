@@ -20,7 +20,7 @@ const defaultOptions = {
 }
 
 const Circle: React.FC<CircleProps> = (props) => {
-  const { percent } = props
+  const { percent, className } = props
 
   const options = useMemo(() => {
     const options = {
@@ -44,38 +44,35 @@ const Circle: React.FC<CircleProps> = (props) => {
   }, [props.options])
 
   const styles = useMemo(() => {
-    var radius = options.size / 2 - options.stroke.width
-    var diameter = radius * 2
-    var circumference = Math.round(Math.PI * diameter)
-    var percentageRemaining = 100 - percent
-    var percentage = (percentageRemaining / 100) * circumference
+    let radius = options.size / 2 - options.stroke.width
+    let diameter = radius * 2
+    let circumference = Math.round(Math.PI * diameter)
+    let percentageRemaining = 100 - percent
+    let percentage = (percentageRemaining / 100) * circumference
 
     const styles = {
       svg: {
         height: options.size,
         width: options.size,
       },
-      circles: {
-        fill: {
-          r: options.size / 2 - options.stroke.width,
-          cx: options.size / 2,
-          cy: options.size / 2,
-          stroke: options.fill.color,
-
-          strokeWidth: options.stroke.width - 1,
-          opacity: options.fill.opacity,
-        },
-        stroke: {
-          r: options.size / 2 - options.stroke.width,
-          cx: options.size / 2,
-          cy: options.size / 2,
-          strokeDasharray: circumference,
-          strokeDashoffset: percentage,
-          stroke: options.stroke.color,
-          strokeWidth: options.stroke.width,
-          opacity: options.stroke.opacity,
-          animation: renderAnimation(percent),
-        },
+      fill: {
+        r: options.size / 2 - options.stroke.width,
+        cx: options.size / 2,
+        cy: options.size / 2,
+        stroke: options.fill.color,
+        strokeWidth: options.stroke.width - 1,
+        opacity: options.fill.opacity,
+      },
+      stroke: {
+        r: options.size / 2 - options.stroke.width,
+        cx: options.size / 2,
+        cy: options.size / 2,
+        strokeDasharray: circumference,
+        strokeDashoffset: percentage,
+        stroke: options.stroke.color,
+        strokeWidth: options.stroke.width,
+        opacity: options.stroke.opacity,
+        animation: renderAnimation(percent),
       },
     }
 
@@ -83,7 +80,7 @@ const Circle: React.FC<CircleProps> = (props) => {
   }, [options])
 
   function renderAnimation(percent: number) {
-    if (percent !== 100) return 'unset'
+    if (percent !== 100) return `ease-in-out 3s infinite alternate circleidle`
 
     if (options.animation.type === 'slow') {
       return `ease-in-out 3s infinite alternate circleslow`
@@ -98,16 +95,15 @@ const Circle: React.FC<CircleProps> = (props) => {
   const ref: any = useRef()
 
   useEffect(() => {
-    ref.current.style.setProperty('--circle-fill-color', options.fill.color)
     ref.current.style.setProperty('--circle-stroke-color', options.stroke.color)
     ref.current.style.setProperty('--circle-anim-color', options.animation.color)
   }, [])
 
   return (
-    <div ref={ref} className="_ProgressCircle">
+    <div ref={ref} className={'_ProgressCircle' + `${' ' + className}`}>
       <svg style={styles.svg}>
-        <circle id="_CircleFill" {...styles} style={{ ...styles.circles.fill }} />
-        <circle id="_CircleStroke" {...styles} style={{ ...styles.circles.stroke }} />
+        <circle id="_CircleFill" style={{ ...styles.fill }} />
+        <circle id="_CircleStroke" style={{ ...styles.stroke }} />
       </svg>
     </div>
   )
