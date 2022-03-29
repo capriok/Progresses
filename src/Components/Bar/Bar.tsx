@@ -61,12 +61,16 @@ const Bar: React.FC<BarProps> = (props) => {
         opacity: options.fill.opacity,
         animation: renderAnimation(percent),
       },
+      showPercent: {
+        transform: 'translate(-50%, -50%) rotate(0deg)',
+      },
     }
 
     if (options.orientation === 'vertical') {
       styles.progress.transform = 'rotate(180deg)'
       styles.rect.width = '100%'
       styles.rect.height = percent + '%'
+      styles.showPercent.transform = 'translate(-50%, -50%) rotate(180deg)'
     }
     console.log(styles)
 
@@ -94,7 +98,10 @@ const Bar: React.FC<BarProps> = (props) => {
   }, [])
 
   return (
-    <div ref={ref} className={'_ProgressBar' + `${' ' + className}`} style={styles.progress}>
+    <div
+      ref={ref}
+      className={'_ProgressBar' + `${' ' + className}`}
+      style={styles.progress}>
       <svg style={styles.svg}>
         <rect style={styles.rect} />
       </svg>

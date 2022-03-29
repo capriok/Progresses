@@ -2,6 +2,7 @@ $FillColor: var(--bar-fill-color);
 $AnimColor: var(--bar-anim-color);
 
 ._ProgressBar {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;

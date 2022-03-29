@@ -5,9 +5,10 @@ export interface BarProps {
 }
 
 export type BarOptions = {
-  width: number
-  height: number
+  width?: number
+  height?: number
   orientation?: 'horizontal' | 'vertical'
+  showPercent?: boolean
   background?: {
     color?: string
     opacity?: number

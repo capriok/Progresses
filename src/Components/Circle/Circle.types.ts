@@ -1,11 +1,12 @@
 export interface CircleProps {
-  percent: number
   className?: string
+  percent: number
   options?: CircleOptions
 }
 
 export type CircleOptions = {
   size: number
+  showPercent?: boolean
   fill?: {
     color?: string
     opacity?: number

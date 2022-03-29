@@ -4,6 +4,7 @@ import '../../styles/circle.scss'
 
 const defaultOptions = {
   size: 100,
+  showPercent: true,
   fill: {
     color: '#e0e0e0',
     opacity: 1,
@@ -100,11 +101,20 @@ const Circle: React.FC<CircleProps> = (props) => {
   }, [])
 
   return (
-    <div ref={ref} className={'_ProgressCircle' + `${' ' + className}`}>
+    <div
+      ref={ref}
+      className={'_ProgressCircle' + `${' ' + className}`}>
       <svg style={styles.svg}>
-        <circle id="_CircleFill" style={{ ...styles.fill }} />
-        <circle id="_CircleStroke" style={{ ...styles.stroke }} />
+        <circle
+          id="_CircleFill"
+          style={{ ...styles.fill }}
+        />
+        <circle
+          id="_CircleStroke"
+          style={{ ...styles.stroke }}
+        />
       </svg>
+      {options.showPercent ? <div className="_ShowPercent">{percent}</div> : <></>}
     </div>
   )
 }

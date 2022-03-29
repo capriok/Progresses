@@ -2,6 +2,7 @@ $StrokeColor: var(--circle-stroke-color);
 $AnimColor: var(--circle-anim-color);
 
 ._ProgressCircle {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,8 +17,17 @@ $AnimColor: var(--circle-anim-color);
     stroke-dashoffset: 0;
     transition: stroke-dashoffset 1s linear;
   }
+
   ._CircleFill {
     z-index: 1;
+  }
+
+  ._ShowPercent {
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
   }
 }
 
