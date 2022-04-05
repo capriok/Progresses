@@ -1,4 +1,4 @@
-$StrokeColor: var(--circle-stroke-color);
+$FillColor: var(--circle-fill-color);
 $AnimColor: var(--circle-anim-color);
 
 ._ProgressCircle {
@@ -18,7 +18,7 @@ $AnimColor: var(--circle-anim-color);
     transition: stroke-dashoffset 1s linear;
   }
 
-  ._CircleFill {
+  ._CircleBack {
     z-index: 1;
   }
 
@@ -40,24 +40,12 @@ $AnimColor: var(--circle-anim-color);
 
 @keyframes circleslow {
   10% {
-    stroke: $StrokeColor;
+    stroke: $FillColor;
   }
   50% {
     stroke: $AnimColor;
   }
   100% {
-    stroke: $StrokeColor;
-  }
-}
-
-@keyframes circlefast {
-  30% {
-    stroke: $StrokeColor;
-  }
-  50% {
-    stroke: $AnimColor;
-  }
-  60% {
-    stroke: $StrokeColor;
+    stroke: $FillColor;
   }
 }

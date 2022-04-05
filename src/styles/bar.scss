@@ -15,6 +15,14 @@ $AnimColor: var(--bar-anim-color);
   svg rect {
     transition: height 1s linear;
   }
+
+  ._ShowPercent {
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 @keyframes baridle {
@@ -32,18 +40,6 @@ $AnimColor: var(--bar-anim-color);
     fill: $AnimColor;
   }
   100% {
-    fill: $FillColor;
-  }
-}
-
-@keyframes barfast {
-  35% {
-    fill: $FillColor;
-  }
-  50% {
-    fill: $AnimColor;
-  }
-  65% {
     fill: $FillColor;
   }
 }

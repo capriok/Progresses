@@ -9,16 +9,9 @@ export type BarOptions = {
   height?: number
   orientation?: 'horizontal' | 'vertical'
   showPercent?: boolean
-  background?: {
-    color?: string
-    opacity?: number
-  }
-  fill?: {
-    color?: string
-    opacity?: number
-  }
-  animation?: {
-    type?: 'slow' | 'fast'
-    color?: string
+  colors?: {
+    back?: string
+    fill?: string
+    animation?: string
   }
 }

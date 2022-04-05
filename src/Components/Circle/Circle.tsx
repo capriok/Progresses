@@ -4,19 +4,12 @@ import '../../styles/circle.scss'
 
 const defaultOptions = {
   size: 100,
+  strokeWidth: 7,
   showPercent: true,
-  fill: {
-    color: '#e0e0e0',
-    opacity: 1,
-  },
-  stroke: {
-    color: '#202020',
-    width: 7,
-    opacity: 1,
-  },
-  animation: {
-    color: 'darkred',
-    type: 'slow',
+  colors: {
+    back: '#e0e0e0',
+    fill: '#202020',
+    animation: 'darkred',
   },
 }
 
@@ -27,17 +20,9 @@ const Circle: React.FC<CircleProps> = (props) => {
     const options = {
       ...defaultOptions,
       ...props.options,
-      fill: {
-        ...defaultOptions.fill,
-        ...props.options?.fill,
-      },
-      stroke: {
-        ...defaultOptions.stroke,
-        ...props.options?.stroke,
-      },
-      animation: {
-        ...defaultOptions.animation,
-        ...props.options?.animation,
+      colors: {
+        ...defaultOptions.colors,
+        ...props.options?.colors,
       },
     }
 
@@ -45,7 +30,7 @@ const Circle: React.FC<CircleProps> = (props) => {
   }, [props.options])
 
   const styles = useMemo(() => {
-    let radius = options.size / 2 - options.stroke.width
+    let radius = options.size / 2 - options.strokeWidth
     let diameter = radius * 2
     let circumference = Math.round(Math.PI * diameter)
     let percentageRemaining = 100 - percent
@@ -56,23 +41,21 @@ const Circle: React.FC<CircleProps> = (props) => {
         height: options.size,
         width: options.size,
       },
-      fill: {
-        r: options.size / 2 - options.stroke.width,
+      back: {
+        r: options.size / 2 - options.strokeWidth,
         cx: options.size / 2,
         cy: options.size / 2,
-        stroke: options.fill.color,
-        strokeWidth: options.stroke.width - 1,
-        opacity: options.fill.opacity,
+        stroke: options.colors.back,
+        strokeWidth: options.strokeWidth - 1,
       },
-      stroke: {
-        r: options.size / 2 - options.stroke.width,
+      fill: {
+        r: options.size / 2 - options.strokeWidth,
         cx: options.size / 2,
         cy: options.size / 2,
         strokeDasharray: circumference,
         strokeDashoffset: percentage,
-        stroke: options.stroke.color,
-        strokeWidth: options.stroke.width,
-        opacity: options.stroke.opacity,
+        stroke: options.colors.fill,
+        strokeWidth: options.strokeWidth,
         animation: renderAnimation(percent),
       },
     }
@@ -82,13 +65,7 @@ const Circle: React.FC<CircleProps> = (props) => {
 
   function renderAnimation(percent: number) {
     if (percent !== 100) return `ease-in-out 3s infinite alternate circleidle`
-
-    if (options.animation.type === 'slow') {
-      return `ease-in-out 3s infinite alternate circleslow`
-    }
-    if (options.animation.type === 'fast') {
-      return `ease-in-out 1.5s infinite alternate circlefast`
-    }
+    if (percent === 100) return `ease-in-out 3s infinite alternate circleslow`
 
     return 'unset'
   }
@@ -96,8 +73,8 @@ const Circle: React.FC<CircleProps> = (props) => {
   const ref: any = useRef()
 
   useEffect(() => {
-    ref.current.style.setProperty('--circle-stroke-color', options.stroke.color)
-    ref.current.style.setProperty('--circle-anim-color', options.animation.color)
+    ref.current.style.setProperty('--circle-fill-color', options.colors.fill)
+    ref.current.style.setProperty('--circle-anim-color', options.colors.animation)
   }, [])
 
   return (
@@ -106,12 +83,12 @@ const Circle: React.FC<CircleProps> = (props) => {
       className={'_ProgressCircle' + `${' ' + className}`}>
       <svg style={styles.svg}>
         <circle
-          id="_CircleFill"
-          style={{ ...styles.fill }}
+          id="_CircleBack"
+          style={{ ...styles.back }}
         />
         <circle
-          id="_CircleStroke"
-          style={{ ...styles.stroke }}
+          id="_CircleFill"
+          style={{ ...styles.fill }}
         />
       </svg>
       {options.showPercent ? <div className="_ShowPercent">{percent}</div> : <></>}

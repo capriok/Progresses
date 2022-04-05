@@ -6,17 +6,10 @@ const defaultOptions = {
   width: 100,
   height: 10,
   orientation: 'horizontal',
-  background: {
-    color: '#e0e0e0',
-    opacity: 1,
-  },
-  fill: {
-    color: '#202020',
-    opacity: 1,
-  },
-  animation: {
-    color: 'darkred',
-    type: 'slow',
+  colors: {
+    back: '#e0e0e0',
+    fill: '#202020',
+    animation: 'darkred',
   },
 }
 
@@ -27,17 +20,9 @@ const Bar: React.FC<BarProps> = (props) => {
     const options = {
       ...defaultOptions,
       ...props.options,
-      background: {
-        ...defaultOptions.background,
-        ...props.options?.background,
-      },
-      fill: {
-        ...defaultOptions.fill,
-        ...props.options?.fill,
-      },
-      animation: {
-        ...defaultOptions.animation,
-        ...props.options?.animation,
+      colors: {
+        ...defaultOptions.colors,
+        ...props.options?.colors,
       },
     }
 
@@ -52,17 +37,17 @@ const Bar: React.FC<BarProps> = (props) => {
       svg: {
         width: options.width,
         height: options.height,
-        backgroundColor: options.background.color,
+        backgroundColor: options.colors.back,
       },
       rect: {
         width: percent + '%',
         height: '100%',
-        fill: options.fill.color,
-        opacity: options.fill.opacity,
+        fill: options.colors.fill,
         animation: renderAnimation(percent),
       },
       showPercent: {
-        transform: 'translate(-50%, -50%) rotate(0deg)',
+        top: '100%',
+        transform: 'translate(-50%, -50%)',
       },
     }
 
@@ -70,6 +55,7 @@ const Bar: React.FC<BarProps> = (props) => {
       styles.progress.transform = 'rotate(180deg)'
       styles.rect.width = '100%'
       styles.rect.height = percent + '%'
+      styles.showPercent.top = '0%'
       styles.showPercent.transform = 'translate(-50%, -50%) rotate(180deg)'
     }
     console.log(styles)
@@ -81,20 +67,14 @@ const Bar: React.FC<BarProps> = (props) => {
 
   function renderAnimation(percent: number) {
     if (percent !== 100) return `ease-in-out 3s infinite alternate baridle`
-
-    if (options.animation.type === 'slow') {
-      return `ease-in-out 3s infinite alternate barslow`
-    }
-    if (options.animation.type === 'fast') {
-      return `ease-in-out 1.5s infinite alternate barfast`
-    }
+    if (percent !== 100) return `ease-in-out 3s infinite alternate barslow`
 
     return 'unset'
   }
 
   useEffect(() => {
-    ref.current.style.setProperty('--bar-fill-color', options.fill.color)
-    ref.current.style.setProperty('--bar-anim-color', options.animation.color)
+    ref.current.style.setProperty('--bar-fill-color', options.colors.fill)
+    ref.current.style.setProperty('--bar-anim-color', options.colors.animation)
   }, [])
 
   return (
@@ -105,6 +85,11 @@ const Bar: React.FC<BarProps> = (props) => {
       <svg style={styles.svg}>
         <rect style={styles.rect} />
       </svg>
+      <div
+        className="_ShowPercent"
+        style={styles.showPercent}>
+        {percent}
+      </div>
     </div>
   )
 }
