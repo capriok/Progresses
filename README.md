@@ -25,14 +25,11 @@ function App() {
   let options = { 
     width: 150,
     height: 10,
-    animationColor: 'crimson'
+    orientation: 'vertical'
    }
 
   return (
-    <ProgreessBar
-      percent={75}
-      options={options}
-    />
+    <ProgreessBar percent={75} />
   )
 }
 ```
@@ -54,83 +51,46 @@ Do you like what we made? Support it by donating, creating an issue or pull requ
 <!-- ## Try it out on CodeSandbox
 [![Edit Button](https://svgshare.com/i/KAx.svg)](https://codesandbox.io/s/autosearch-08wvi) -->
 
-<!-- ## API
+## API
 
 ## Props
 
-#### `list: Array`
-Value: `Array<{ [prop: string]: string } | string>`
+| Optional | Key         | Value                     | Default | Description |
+|:--------:|-------------|---------------------------|---------|------------:|
+|          | percent     | number                    | 0       | |
+| x        | className   | string                    |         | additional styling applied to parent |
+| x        | options     | ProgressesOptions         |         | options for Progresses components |
 
-Type: `Array<String>`: no action required in AutoSearchOptions
+## ProgressesOptions
 
-Type: `Array<Object>`: specify propKey value in AutoSearchOptions
+### Bar
 
-- The list used for the AutoSearch algorithms
+| Optional | Key         | Value                     | Default   | Description |
+|:--------:|-------------|---------------------------|-----------|------------:|
+| x        | width       | number                    | 100px     | width of the bar|
+| x        | height      | number                    | 100px     | height of the bar |
+| x        | orientaion  | 'horizontal', 'vertical'  | horizonal | used to rotate the progress bar |
+| x        | showPercent | boolean                   | false     | determination to render the percent indicator |
+| x        | colors      | OptionColors              |           | colors available to customize |
+ 
+### Circle
 
-#### `onChange: Function` (optional)
-Default: `() => {}`
+| Optional | Key         | Value                     | Default | Description |
+|:--------:|-------------|---------------------------|---------|------------:|
+| x        | size        | number                    | 100px   | size of the circle |
+| x        | strokeWidth | number                    | 7px     | used as the thickness of the circle |
+| x        | showPercent | boolean                   | false   | determination to render the percent indicator |
+| x        | colors      | OptionColors              |         | |
+ 
+## Option colors
 
-Arguments: `value: String`
+### Colors
 
-- Invoked when the user changes the input value.
-
-#### `onNavigate: Function` (optional)
-Default: `() => {}`
-
-Arguments: `results: Array<T>, active: Number`
-
-- Invoked when keyboard listeners react to user navigation of results list.
-
-#### `onSelect: Function` (optional)
-Default: `() => {}`
-
-Arguments: `value: String, results: Array<T>`
-
-- Invoked when the user selects an item from the results list.
-
-#### `options: AutoSearchOptions` (optional)
-Default: `Object<AutoSeachOptions>`
-
-Value: `Object`
-
-- Used throughout AutoSearch as conditional options and values
-
-## Options (optional)
-
-#### `propKey: String`  (optional)
-Default: 'item'
-
-- Used to find the iteration value by the AutoSearch algorithms
-
-#### `primaryColor: String`  (optional)
-Default:  'steelblue'
-
-- Used as the primary color for active result indication
-
-#### `placeholder: String` (optional)
-Default: 'AutoSearch'
-
-- Attribute applied to the root input placeholder value
-
-#### `autoFocus: Boolean` (optional)
-Default:  false
-
-- Attribute applied to the root input autoFocus value
-
-#### `caseSensitive: Boolean` (optional)
-Default: false
-
-- Used in the AutoSearch algorithms to match search value
-
-#### `maxResults: Number` (optional)
-Default: 10
-
-- Max number of results to render in the results list
-
-#### `showIcon: Boolean` (optional)
-Default: true
-
-- Used to determine if the search icon is rendered in the input -->
+| Optional | Key         | Value                     | Default | Description |
+|:--------:|-------------|--------------------------:|---------|------------:|
+| x        | back        | string                    | #e0e0e0 | background color |
+| x        | fill        | string                    | #202020 | percentage fill color |
+| x        | animation   | string                    | darkred | animation fill color |
 
 ## Patch notes
 A log of recent updates and notes can be found [here](https://kylecaprio.dev/progresses)

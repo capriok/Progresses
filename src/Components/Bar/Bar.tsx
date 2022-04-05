@@ -6,6 +6,7 @@ const defaultOptions = {
   width: 100,
   height: 10,
   orientation: 'horizontal',
+  showPercent: true,
   colors: {
     back: '#e0e0e0',
     fill: '#202020',
@@ -67,7 +68,7 @@ const Bar: React.FC<BarProps> = (props) => {
 
   function renderAnimation(percent: number) {
     if (percent !== 100) return `ease-in-out 3s infinite alternate baridle`
-    if (percent !== 100) return `ease-in-out 3s infinite alternate barslow`
+    if (percent === 100) return `ease-in-out 3s infinite alternate barslow`
 
     return 'unset'
   }
@@ -85,11 +86,15 @@ const Bar: React.FC<BarProps> = (props) => {
       <svg style={styles.svg}>
         <rect style={styles.rect} />
       </svg>
-      <div
-        className="_ShowPercent"
-        style={styles.showPercent}>
-        {percent}
-      </div>
+      {options.showPercent ? (
+        <div
+          className="_ShowPercent"
+          style={styles.showPercent}>
+          {percent}
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   )
 }

@@ -1,11 +1,11 @@
 export interface CircleProps {
-  className?: string
   percent: number
+  className?: string
   options?: CircleOptions
 }
 
 export type CircleOptions = {
-  size: number
+  size?: number
   strokeWidth?: number
   showPercent?: boolean
   colors?: {
