@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef } from 'react'
-import { BarProps } from './Bar.types'
+import { ProgressesProps } from 'Components/index.types'
 import '../../styles/bar.scss'
 
 const defaultOptions = {
@@ -10,11 +10,11 @@ const defaultOptions = {
   colors: {
     back: '#e0e0e0',
     fill: '#202020',
-    animation: 'darkred',
+    anim: 'darkred',
   },
 }
 
-const Bar: React.FC<BarProps> = (props) => {
+const Bar: React.FC<ProgressesProps> = (props) => {
   const { percent, className } = props
 
   const options = useMemo(() => {
@@ -75,7 +75,7 @@ const Bar: React.FC<BarProps> = (props) => {
 
   useEffect(() => {
     ref.current.style.setProperty('--bar-fill-color', options.colors.fill)
-    ref.current.style.setProperty('--bar-anim-color', options.colors.animation)
+    ref.current.style.setProperty('--bar-anim-color', options.colors.anim)
   }, [])
 
   return (

@@ -9,11 +9,11 @@
   <a href="https://www.npmjs.com/package/progresses">
     <img alt="npm" src="https://img.shields.io/github/package-json/dependency-version/capriok/progresses/dev/@types/react" />
   </a>
-</p> -->
-
-<!-- <p align="center">
+</p>
+<p align="center">
   <img alt="screenshot" src="https://i.gyazo.com/feff88e421e29781edc414c4e041e5ec.png" >
-</p> -->
+</p> 
+-->
 
 A modern approach to an progress components for React
 
@@ -22,14 +22,16 @@ import React from 'react'
 
 function App() {
 
-  let options = { 
+  let options = {
     width: 150,
     height: 10,
-    orientation: 'vertical'
-   }
+  }
 
   return (
-    <ProgreessBar percent={75} />
+    <ProgressBar
+      percent={100}
+      options={options}
+    />
   )
 }
 ```
@@ -54,48 +56,49 @@ Do you like what we made? Support it by donating, creating an issue or pull requ
 ## API
 
 ## Props
+Progresses: `<{ percent: number, className?: string, options?: ProgressesOptions }>`
 
-| Optional | Key         | Value                     | Default | Description |
-|:--------:|-------------|---------------------------|---------|------------:|
-|          | percent     | number                    | 0       | |
-| x        | className   | string                    |         | additional styling applied to parent |
-| x        | options     | ProgressesOptions         |         | options for Progresses components |
+| Key                 | Value                         | Default          | Description |
+|---------------------|-------------------------------|------------------|-------------|
+| `percent`           | `number`                      | `0`              | (required) used as fill progress
+| `className`         | `string`                      |                  | additional styling
+| `options`           | `BarOptions`, `CircleOptions` |                  | additional options
+| <img width=100/>    | <img width=200/>              | <img width=100/> |
 
-## ProgressesOptions
+Bar: `Object<BarOptions>`
 
-### Bar
-
-| Optional | Key         | Value                     | Default   | Description |
-|:--------:|-------------|---------------------------|-----------|------------:|
-| x        | width       | number                    | 100px     | width of the bar|
-| x        | height      | number                    | 100px     | height of the bar |
-| x        | orientaion  | 'horizontal', 'vertical'  | horizonal | used to rotate the progress bar |
-| x        | showPercent | boolean                   | false     | determination to render the percent indicator |
-| x        | colors      | OptionColors              |           | colors available to customize |
+| Key              | Value                        | Default          | Description |
+|------------------|------------------------------|------------------|-------------|
+| `width`          | `number`                     | `100px`          | width of the bar
+| `height`         | `number`                     | `100px`          | height of the bar
+| `orientation`    | `'horizontal'`, `'vertical'` | `horizontal`     | determines orientation 
+| `showPercent`    | `boolean`                    | `false`          | shows percent indicator
+| `colors`         | `OptionColors`               |                  | colors available to customize
+| <img width=100/> | <img width=200/>             | <img width=100/> |
  
-### Circle
+Circle: `Object<CircleOptions>`
 
-| Optional | Key         | Value                     | Default | Description |
-|:--------:|-------------|---------------------------|---------|------------:|
-| x        | size        | number                    | 100px   | size of the circle |
-| x        | strokeWidth | number                    | 7px     | used as the thickness of the circle |
-| x        | showPercent | boolean                   | false   | determination to render the percent indicator |
-| x        | colors      | OptionColors              |         | |
+| Key              | Value            | Default          | Description |
+|------------------|------------------|------------------|-------------|
+| `size`           | `number`         | `100px`          | diameter of the circle
+| `strokeWidth`    | `number`         | `7px`            | thickness of the circle
+| `showPercent`    | `boolean`        | `false`          | shows percent indicator
+| `colors`         | `OptionColors`   |                  | colors available to customize
+| <img width=100/> | <img width=200/> | <img width=100/> |
  
-## Option colors
+Colors: `Object<OptionColors>`
 
-### Colors
-
-| Optional | Key         | Value                     | Default | Description |
-|:--------:|-------------|--------------------------:|---------|------------:|
-| x        | back        | string                    | #e0e0e0 | background color |
-| x        | fill        | string                    | #202020 | percentage fill color |
-| x        | animation   | string                    | darkred | animation fill color |
+| Key              | Value            | Default          | Description |
+|------------------|------------------|------------------|-------------|
+| `back`           | `string`         | `#e0e0e0`        | background color
+| `fill`           | `string`         | `#202020`        | percentage fill color
+| `anim`           | `string`         | `darkred`        | animation fill color
+| <img width=100/> | <img width=200/> | <img width=100/> |
 
 ## Patch notes
 A log of recent updates and notes can be found [here](https://kylecaprio.dev/progresses)
 
-## Roadmap
+## Road map
 The future plans are under deliberation within the core team.
 
 ## License

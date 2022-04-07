@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef } from 'react'
-import { CircleProps } from './Circle.types'
+import { ProgressesProps } from 'Components/index.types'
 import '../../styles/circle.scss'
 
 const defaultOptions = {
@@ -9,11 +9,11 @@ const defaultOptions = {
   colors: {
     back: '#e0e0e0',
     fill: '#202020',
-    animation: 'darkred',
+    anim: 'darkred',
   },
 }
 
-const Circle: React.FC<CircleProps> = (props) => {
+const Circle: React.FC<ProgressesProps> = (props) => {
   const { percent, className } = props
 
   const options = useMemo(() => {
@@ -74,7 +74,7 @@ const Circle: React.FC<CircleProps> = (props) => {
 
   useEffect(() => {
     ref.current.style.setProperty('--circle-fill-color', options.colors.fill)
-    ref.current.style.setProperty('--circle-anim-color', options.colors.animation)
+    ref.current.style.setProperty('--circle-anim-color', options.colors.anim)
   }, [])
 
   return (
