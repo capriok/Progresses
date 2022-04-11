@@ -55,7 +55,7 @@ Do you like what we made? Support it by donating, creating an issue or pull requ
 
 # API
 
-## Props
+### Props
 
 percent: `number` (required)
 
@@ -63,31 +63,31 @@ percent: `number` (required)
 
 - used as fill percentage
 
-className: `string`
+className: `string` 
 
 - additional styling
 
-options: `BarOptions`, `CircleOptions`
+options: `BarOptions`, `CircleOptions` 
 
 - additional options
 
-## BarOptions
+### BarOptions
 
 width: `number`
 
-- default: `100px`
+- default: `100`
 
-- width of the bar
+- width of the bar in px
 
 height: `number`
 
-- default: `100px`
+- default: `10`
 
-- height of the bar
+- height of the bar in px
 
 orientation: `'horizontal'`, `'vertical'`
 
-- default:`horizontal`
+- default: `horizontal`
 
 - determines orientation 
 
@@ -99,25 +99,25 @@ showPercent: `boolean`
 
 colors: `OptionsColors`
 
-- colors available to customize
+- customizable colors
 
-## CircleOptions
+### CircleOptions
 
 size: `number`
 
-- default: `100px`
+- default: `100`
 
-- width of the bar
+- diameter of the circle in px
 
 strokeWidth: `number`
 
-- default: `7px`
+- default: `7`
 
-- height of the bar
+- thickness of the circle in px
 
-orientation: `'horizontal'`, `'vertical'`
+orientation: `'horizontal' | 'vertical'`
 
-- default:`horizontal`
+- default: `horizontal`
 
 - determines orientation 
 
@@ -129,27 +129,27 @@ showPercent: `boolean`
 
 colors: `OptionsColors`
 
-- colors available to customize
+- customizable colors
 
-## OptionsColors
+### OptionsColors
 
 back: `string`
 
 - default: `#e0e0e0`
 
-- width of the bar
+- background color
 
 fill: `string`
 
 - default: `#202020`
 
-- width of the bar
+- percentage fill color
 
 anim: `string`
 
 - default: `darkred`
 
-- width of the bar
+- animation fill color
 
 ## Patch notes
 A log of recent updates and notes can be found [here](https://kylecaprio.dev/progresses)
