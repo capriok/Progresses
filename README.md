@@ -53,47 +53,103 @@ Do you like what we made? Support it by donating, creating an issue or pull requ
 <!-- ## Try it out on CodeSandbox
 [![Edit Button](https://svgshare.com/i/KAx.svg)](https://codesandbox.io/s/autosearch-08wvi) -->
 
-## API
+# API
 
 ## Props
-Progresses: `<{ percent: number, className?: string, options?: ProgressesOptions }>`
 
-| Key                 | Value                         | Default          | Description |
-|---------------------|-------------------------------|------------------|-------------|
-| `percent`           | `number`                      | `0`              | (required) used as fill progress
-| `className`         | `string`                      |                  | additional styling
-| `options`           | `BarOptions`, `CircleOptions` |                  | additional options
-| <img width=100/>    | <img width=200/>              | <img width=100/> |
+percent: `number` (required)
 
-Bar: `Object<BarOptions>`
+- default: `0`
 
-| Key              | Value                        | Default          | Description |
-|------------------|------------------------------|------------------|-------------|
-| `width`          | `number`                     | `100px`          | width of the bar
-| `height`         | `number`                     | `100px`          | height of the bar
-| `orientation`    | `'horizontal'`, `'vertical'` | `horizontal`     | determines orientation 
-| `showPercent`    | `boolean`                    | `false`          | shows percent indicator
-| `colors`         | `OptionColors`               |                  | colors available to customize
-| <img width=100/> | <img width=200/>             | <img width=100/> |
- 
-Circle: `Object<CircleOptions>`
+- used as fill percentage
 
-| Key              | Value            | Default          | Description |
-|------------------|------------------|------------------|-------------|
-| `size`           | `number`         | `100px`          | diameter of the circle
-| `strokeWidth`    | `number`         | `7px`            | thickness of the circle
-| `showPercent`    | `boolean`        | `false`          | shows percent indicator
-| `colors`         | `OptionColors`   |                  | colors available to customize
-| <img width=100/> | <img width=200/> | <img width=100/> |
- 
-Colors: `Object<OptionColors>`
+className: `string`
 
-| Key              | Value            | Default          | Description |
-|------------------|------------------|------------------|-------------|
-| `back`           | `string`         | `#e0e0e0`        | background color
-| `fill`           | `string`         | `#202020`        | percentage fill color
-| `anim`           | `string`         | `darkred`        | animation fill color
-| <img width=100/> | <img width=200/> | <img width=100/> |
+- additional styling
+
+options: `BarOptions`, `CircleOptions`
+
+- additional options
+
+## BarOptions
+
+width: `number`
+
+- default: `100px`
+
+- width of the bar
+
+height: `number`
+
+- default: `100px`
+
+- height of the bar
+
+orientation: `'horizontal'`, `'vertical'`
+
+- default:`horizontal`
+
+- determines orientation 
+
+showPercent: `boolean`
+
+- default: `false`
+
+- shows percent indicator
+
+colors: `OptionsColors`
+
+- colors available to customize
+
+## CircleOptions
+
+size: `number`
+
+- default: `100px`
+
+- width of the bar
+
+strokeWidth: `number`
+
+- default: `7px`
+
+- height of the bar
+
+orientation: `'horizontal'`, `'vertical'`
+
+- default:`horizontal`
+
+- determines orientation 
+
+showPercent: `boolean`
+
+- default: `false`
+
+- shows percent indicator
+
+colors: `OptionsColors`
+
+- colors available to customize
+
+## OptionsColors
+
+back: `string`
+
+- default: `#e0e0e0`
+
+- width of the bar
+
+fill: `string`
+
+- default: `#202020`
+
+- width of the bar
+
+anim: `string`
+
+- default: `darkred`
+
+- width of the bar
 
 ## Patch notes
 A log of recent updates and notes can be found [here](https://kylecaprio.dev/progresses)

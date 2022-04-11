@@ -16,6 +16,8 @@ const defaultOptions = {
 const Circle: React.FC<ProgressesProps> = (props) => {
   const { percent, className } = props
 
+  const ref: any = useRef()
+
   const options = useMemo(() => {
     const options = {
       ...defaultOptions,
@@ -59,18 +61,15 @@ const Circle: React.FC<ProgressesProps> = (props) => {
         animation: renderAnimation(percent),
       },
     }
+    console.log(styles)
 
     return styles
   }, [options])
 
   function renderAnimation(percent: number) {
-    if (percent !== 100) return `ease-in-out 3s infinite alternate circleidle`
-    if (percent === 100) return `ease-in-out 3s infinite alternate circleslow`
-
-    return 'unset'
+    const full = percent === 100
+    return `ease-in-out 3s infinite alternate circle${full ? 'anim' : 'idle'}`
   }
-
-  const ref: any = useRef()
 
   useEffect(() => {
     ref.current.style.setProperty('--circle-fill-color', options.colors.fill)

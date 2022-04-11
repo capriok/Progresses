@@ -17,6 +17,8 @@ const defaultOptions = {
 const Bar: React.FC<ProgressesProps> = (props) => {
   const { percent, className } = props
 
+  const ref: any = useRef()
+
   const options = useMemo(() => {
     const options = {
       ...defaultOptions,
@@ -64,13 +66,9 @@ const Bar: React.FC<ProgressesProps> = (props) => {
     return styles
   }, [options])
 
-  const ref: any = useRef()
-
   function renderAnimation(percent: number) {
-    if (percent !== 100) return `ease-in-out 3s infinite alternate baridle`
-    if (percent === 100) return `ease-in-out 3s infinite alternate barslow`
-
-    return 'unset'
+    const full = percent === 100
+    return `ease-in-out 3s infinite alternate bar${full ? 'anim' : 'idle'}`
   }
 
   useEffect(() => {

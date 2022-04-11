@@ -32,7 +32,7 @@ $AnimColor: var(--bar-anim-color);
   }
 }
 
-@keyframes barslow {
+@keyframes baranim {
   10% {
     fill: $FillColor;
   }

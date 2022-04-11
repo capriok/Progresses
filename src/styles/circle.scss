@@ -31,14 +31,14 @@ $AnimColor: var(--circle-anim-color);
   }
 }
 
-@keyframes baridle {
+@keyframes circleidle {
   from {
   }
   to {
   }
 }
 
-@keyframes circleslow {
+@keyframes circleanim {
   10% {
     stroke: $FillColor;
   }
