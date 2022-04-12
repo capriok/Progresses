@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef } from 'react'
-import { ProgressesProps } from 'Components/index.types'
+import { BarProps } from './Bar.types'
 import '../../styles/bar.scss'
 
 const defaultOptions = {
@@ -14,7 +14,7 @@ const defaultOptions = {
   },
 }
 
-const Bar: React.FC<ProgressesProps> = (props) => {
+const Bar: React.FC<BarProps> = (props) => {
   const { percent, className } = props
 
   const ref: any = useRef()

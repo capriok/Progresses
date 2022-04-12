@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef } from 'react'
-import { ProgressesProps } from 'Components/index.types'
+import { CircleProps } from './Circle.types'
 import '../../styles/circle.scss'
 
 const defaultOptions = {
@@ -13,7 +13,7 @@ const defaultOptions = {
   },
 }
 
-const Circle: React.FC<ProgressesProps> = (props) => {
+const Circle: React.FC<CircleProps> = (props) => {
   const { percent, className } = props
 
   const ref: any = useRef()

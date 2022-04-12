@@ -9,11 +9,10 @@
   <a href="https://www.npmjs.com/package/progresses">
     <img alt="npm" src="https://img.shields.io/github/package-json/dependency-version/capriok/progresses/dev/@types/react" />
   </a>
-</p>
+</p> -->
 <p align="center">
-  <img alt="screenshot" src="https://i.gyazo.com/feff88e421e29781edc414c4e041e5ec.png" >
+  <img alt="screenshot" src="https://i.imgur.com/LXTOo2H.png" width="325" >
 </p> 
--->
 
 A modern approach to an progress components for React
 

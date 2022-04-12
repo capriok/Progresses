@@ -1,5 +1,11 @@
 import { OptionColors } from 'Components/index.types'
 
+export interface BarProps {
+  percent: number
+  className?: string
+  options?: BarOptions
+}
+
 export type BarOptions = {
   width?: number
   height?: number
