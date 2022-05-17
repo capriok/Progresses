@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef } from 'react'
-import { CircleProps } from './Circle.types'
+import { CircleProps } from 'Components'
 import '../../styles/circle.scss'
 
 const defaultOptions = {

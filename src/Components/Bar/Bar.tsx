@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef } from 'react'
-import { BarProps } from './Bar.types'
+import { BarProps } from 'Components'
 import '../../styles/bar.scss'
 
 const defaultOptions = {
