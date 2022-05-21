@@ -18,8 +18,6 @@ export type BarOptions = {
   colors?: OptionColors
 }
 
-export { default as ProgressBar } from './Bar'
-
 export interface CircleProps {
   percent: number
   className?: string
@@ -33,4 +31,5 @@ export type CircleOptions = {
   colors?: OptionColors
 }
 
+export { default as ProgressBar } from './Bar'
 export { default as ProgressCircle } from './Circle'

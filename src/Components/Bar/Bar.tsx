@@ -8,9 +8,9 @@ const defaultOptions = {
   orientation: 'horizontal',
   showPercent: true,
   colors: {
-    back: '#e0e0e0',
-    fill: '#202020',
-    anim: 'darkred',
+    back: 'rgba(0, 0, 0, 0.8)',
+    fill: 'rgba(200, 200, 200, 0.8)',
+    anim: 'rgba(200, 30, 30, 0.8)',
   },
 }
 
@@ -61,7 +61,6 @@ const Bar: React.FC<BarProps> = (props) => {
       styles.showPercent.top = '0%'
       styles.showPercent.transform = 'translate(-50%, -50%) rotate(180deg)'
     }
-    console.log(styles)
 
     return styles
   }, [options])

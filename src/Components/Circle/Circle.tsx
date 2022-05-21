@@ -7,9 +7,9 @@ const defaultOptions = {
   strokeWidth: 7,
   showPercent: true,
   colors: {
-    back: '#e0e0e0',
-    fill: '#202020',
-    anim: 'darkred',
+    back: 'rgba(0, 0, 0, 0.8)',
+    fill: 'rgba(200, 200, 200, 0.8)',
+    anim: 'rgba(200, 30, 30, 0.8)',
   },
 }
 
@@ -61,7 +61,6 @@ const Circle: React.FC<CircleProps> = (props) => {
         animation: renderAnimation(percent),
       },
     }
-    console.log(styles)
 
     return styles
   }, [options])
