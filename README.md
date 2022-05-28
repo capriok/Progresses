@@ -131,19 +131,19 @@ colors: `OptionsColors`
 
 back: `string`
 
-- default: `#e0e0e0`
+- default: `rgba(200, 200, 200, 0.8)`
 
 - background color
 
 fill: `string`
 
-- default: `#202020`
+- default: `rgba(20, 20, 20, 0.8)`
 
 - percentage fill color
 
 anim: `string`
 
-- default: `darkred`
+- default: `rgba(200, 10, 10, 0.8)`
 
 - animation fill color
 

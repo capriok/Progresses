@@ -7,9 +7,9 @@ const defaultOptions = {
   strokeWidth: 7,
   showPercent: true,
   colors: {
-    back: 'rgba(0, 0, 0, 0.8)',
-    fill: 'rgba(200, 200, 200, 0.8)',
-    anim: 'rgba(200, 30, 30, 0.8)',
+    back: 'rgba(200, 200, 200, 0.8)',
+    fill: 'rgba(20, 20, 20, 0.8)',
+    anim: 'rgba(200, 10, 10, 0.8)',
   },
 }
 
